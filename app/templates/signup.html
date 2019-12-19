@@ -30,12 +30,32 @@ Sign Up
     <h2 class="form-signin-heading">Sign Up</h2>
     {{ form.hidden_tag() }}
     {{ wtf.form_field(form.username) }}
+    <!-- {% for error in form.username.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+    {% endfor %} -->
     {{ wtf.form_field(form.email) }}
+    <!-- {% for error in form.email.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+    {% endfor %} -->
     {{ wtf.form_field(form.password) }}
+    <!-- {% for error in form.password.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+    {% endfor %} -->
+    <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+    <h5 style="padding-left:20%">Already a User? <a href="{{ url_for('login') }}">SignIn</a></h5> -->
     {{ wtf.form_field(form.password2)}}
     {{ wtf.form_field(form.submit) }}
     <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button> -->
   </form>
-
 </div> <!-- /container -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      var messages = {{ messages | safe }};
+      for (var i=0; i<messages.length; i++) {
+        alert(messages[i]);
+      }
+    </script>
+  {% endif %}
+{% endwith %}
 {% endblock %}
