@@ -31,10 +31,9 @@ Login
         {{ form.hidden_tag() }}
         {{ wtf.form_field(form.username) }}
         {{ wtf.form_field(form.password) }}
-        <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <h5 style="padding-left:20%">New User? <a href="{{ url_for('signup') }}">Click to Register!</a></h5> -->
-        {{ wtf.form_field(form.submit) }}
         <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+        <button style="margin-left: 20%;">{{ wtf.form_field(form.submit) }}</button>
+        <h5 style="padding-left:20%">New User? <a href="{{ url_for('signup') }}">Click to Register</a></h5>
       </form>
     </div> <!-- /container -->
     {% with messages = get_flashed_messages() %}
