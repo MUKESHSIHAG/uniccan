@@ -4,3 +4,4 @@ Pipfile
 Pipfile.lock
 .__atomic-writerjgls69n
 .vscode
+*.db
