@@ -32,7 +32,8 @@ Login
         {{ form.hidden_tag() }}
         {{ wtf.form_field(form.username) }}
         {{ wtf.form_field(form.password) }}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        {{ wtf.form_field(form.submit) }}
+        <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
       </form>
 
     </div> <!-- /container -->
