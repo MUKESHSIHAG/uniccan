@@ -11,8 +11,8 @@ import os
 file_path = os.path.abspath(os.getcwd())+"\database.db"
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+file_path
+# app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+file_path
 db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 login_manager = LoginManager()
