@@ -7,6 +7,11 @@ verify_ssl = true
 
 [packages]
 flask = "*"
+python-dotenv = "*"
+flask-bootstrap = "*"
+flask-wtf = "*"
+flask-sqlalchemy = "*"
+flask-login = "*"
 
 [requires]
 python_version = "3.7"
