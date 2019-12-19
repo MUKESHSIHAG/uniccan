@@ -1,1 +1,2 @@
 FLASK_APP=uniccan.py
+FLASK_DEBUG=1
