@@ -54,18 +54,27 @@ def signup():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html', name=current_user.username)
+    circles = Circle.query.all()
+    print(circles,dir(circles[0]))
+    return render_template('dashboard.html', name=current_user.username, circles=circles)
 
 @app.route('/createcircle',methods=['GET','POST'])
 @login_required
 def createcircle():
     form = CreateCircleForm()
+    print('here')
+    if request.method == 'POST':
+        print('asdfasdf')
     if form.validate_on_submit():
+        print('there')
         circle = Circle(code=form.circlecode.data,title=form.title.data,description=form.description.data)
         db.session.add(circle)
         db.session.commit()
         flash('Circle created successfully!','success')
         return redirect('dashboard')
+    else:
+        print(form,dir(form),form.circlecode,form.title,form.description)
+        print('validation failed')
     return render_template('circle.html',form=form)
   
 @app.route('/edit-profile')

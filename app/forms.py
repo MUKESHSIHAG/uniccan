@@ -42,10 +42,12 @@ class CreateCircleForm(FlaskForm):
     submit = SubmitField('Create Circle')
 
     def validate_circlecode(self,circlecode):
+        print('validating')
         if not circlecode.data.isalnum():
             raise ValidationError('Only use english alphabet and numbers')
 
         circle = Circle.query.filter_by(code=circlecode.data).first()
         if circle is not None:
             raise ValidationError('Circle with this code already exists')
+        print('validation success')
 

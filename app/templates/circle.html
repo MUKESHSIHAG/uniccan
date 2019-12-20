@@ -1,7 +1,24 @@
 {% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
 {{ super() }}
-{{ wtf.quick_form(form) }}
+<form class="form-signin" method="POST" action="/createcircle">
+  {{ form.hidden_tag() }}
+  {{ form.circlecode.label }}
+  {{ form.circlecode(class="form-control") }}
+  {% for error in form.circlecode.errors %}
+  <span style="color: red;">[{{ error }}]</span>
+  {% endfor %}
+  {{ form.title.label }}
+  {{ form.title(class="form-control") }}
+  {% for error in form.title.errors %}
+  <span style="color: red;">[{{ error }}]</span>
+  {% endfor %}
+  {{ form.description.label }}
+  {{ form.description(class="form-control") }}
+  {% for error in form.description.errors %}
+  <span style="color: red;">[{{ error }}]</span>
+  {% endfor %}
+  {{ form.submit() }}
+</form>
 {% endblock %}
