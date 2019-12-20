@@ -51,6 +51,10 @@ def signup():
 def dashboard():
     return render_template('dashboard.html', name=current_user.username)
 
+@app.route('/edit-profile')
+def edit_profile():
+    return render_template('profile.html')
+
 @app.route('/logout')
 @login_required
 def logout():

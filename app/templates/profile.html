@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark row" style="padding: 1%;">
         <a class="navbar-brand text-light col-md-1" href="#">Uniccan</a>
-            <input class="form-control mr-sm-4 col-md-5" type="search" placeholder="Search Circle To Join" aria-label="Search">
+            <!-- <input class="form-control mr-sm-4 col-md-5" type="search" placeholder="Search Circle To Join" aria-label="Search"> -->
             <!-- <button class="btn btn-light" type="submit">Search</button> -->
             <a href="#" class="text-light" style="margin-left: 5%; text-decoration: none;"><h6>Create Circle</h6></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,6 +45,51 @@
             <a href="{{ url_for('logout') }}" style="margin-left: 60%;"><button class="btn btn-danger">LogOut</button></a>
           </ul>
         </div>
-      </nav>
+    </nav>
+    <form style="margin-left: 10%; margin-right: 10%; margin-top: 5%;">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+        <label for="inputEmail4">Username</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Gender</label>
+        <select class="form-control form-control-lg">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress2">College Name</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="NIT Hamirpur">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>...</option>
+        </select>
+        </div>
+        <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Check me out
+        </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
 </body>
 </html>
