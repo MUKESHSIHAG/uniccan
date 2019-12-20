@@ -9,7 +9,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
     college = db.Column(db.String(200))
-    gender = db.Column(db.String(10))
+    gender = db.Column(db.Integer)
     dob = db.Column(db.DateTime)
     
 
