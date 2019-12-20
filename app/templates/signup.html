@@ -24,6 +24,10 @@ Sign Up
     <!-- {% for error in form.email.errors %}
           <span style="color: red;">[{{ error }}]</span>
           {% endfor %} -->
+    <h5>{{ form.gender.label }}</h5>
+    {{ wtf.form_field(form.gender) }}
+    {{ wtf.form_field(form.college) }}
+    {{ wtf.form_field(form.dob) }}
     {{ wtf.form_field(form.password) }}
     <!-- {% for error in form.password.errors %}
             <span style="color: red;">[{{ error }}]</span>
