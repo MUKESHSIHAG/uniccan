@@ -22,7 +22,11 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
-
+class Circle(db.Model):
+    code = db.Column(db.String, primary_key=True)
+    title = db.Column(db.String)
+    description = db.Column(db.Text)
+    
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))

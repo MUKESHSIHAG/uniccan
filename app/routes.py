@@ -1,7 +1,7 @@
 from app import app, db
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, RegisterForm, CreateCircleForm
 from flask import render_template, redirect, url_for, flash
-from app.models import User
+from app.models import User, Circle
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -51,6 +51,18 @@ def signup():
 def dashboard():
     return render_template('dashboard.html', name=current_user.username)
 
+@app.route('/createcircle',methods=['GET','POST'])
+@login_required
+def createcircle():
+    form = CreateCircleForm()
+    if form.validate_on_submit():
+        circle = Circle(code=form.circlecode.data,title=form.title.data,description=form.description.data)
+        db.session.add(circle)
+        db.session.commit()
+        flash('Circle created successfully!','success')
+        return redirect('dashboard')
+    return render_template('circle.html',form=form)
+  
 @app.route('/edit-profile')
 def edit_profile():
     print(current_user.username, current_user.gender, current_user.dob, current_user.college)

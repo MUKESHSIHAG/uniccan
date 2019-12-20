@@ -5,6 +5,7 @@ Uniccan
 {% endblock %}
 
 {% block content %}
+{% if current_user.is_anonymous %}
 <nav class="navbar navbar-inverse navbar-fixed-top row">
   <div class="col-md-1"></div>
   <div class="navbar col-md-8">
@@ -20,7 +21,36 @@ Uniccan
     </ul>
   </div>
 </nav>
-
+{% else %}
+<nav class="navbar navbar-expand-lg navbar-light bg-dark row" style="padding: 1%;">
+  <a class="navbar-brand text-light col-md-1" href="#">Uniccan</a>
+  <input class="form-control mr-sm-4 col-md-6" type="search" placeholder="Search Circle To Join" aria-label="Search">
+  <button class="btn btn-light" type="submit">Search</button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" style="padding-left: 30%;">
+      <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+      <li class="dropdown">
+        <a class="dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">View Your profile</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <a href="{{ url_for('logout') }}" style="margin-left: 30%;"><button class="btn btn-danger">LogOut</button></a>
+    </ul>
+  </div>
+</nav>
+{% endif %}
 <div class="container" style="margin-top: 5%;">
   {% with messages = get_flashed_messages(with_categories=true) %}
   <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
