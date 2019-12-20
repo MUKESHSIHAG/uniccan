@@ -8,6 +8,9 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
+    college = db.Column(db.String(200))
+    gender = db.Column(db.String(10))
+    dob = db.Column(db.DateTime)
     
 
 class Post(db.Model):

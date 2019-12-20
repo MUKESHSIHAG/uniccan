@@ -65,6 +65,7 @@ def createcircle():
   
 @app.route('/edit-profile')
 def edit_profile():
+    print(current_user.username, current_user.gender, current_user.dob, current_user.college)
     return render_template('profile.html')
 
 @app.route('/logout')
