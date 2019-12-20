@@ -6,18 +6,13 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-<<<<<<< HEAD
-flask-login = "*"
-flask-sqlalchemy = "*"
-flask-wtf = "*"
 flask-bootstrap = "*"
 wtforms = "*"
-=======
 flask = "*"
 python-dotenv = "*"
-flask-bootstrap = "*"
 flask-wtf = "*"
 flask-sqlalchemy = "*"
-flask-login = "*"
+flask-migrate = "*"
+
 [requires]
 python_version = "3.7"
