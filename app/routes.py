@@ -62,6 +62,10 @@ def createcircle():
         flash('Circle created successfully!','success')
         return redirect('dashboard')
     return render_template('circle.html',form=form)
+  
+@app.route('/edit-profile')
+def edit_profile():
+    return render_template('profile.html')
 
 @app.route('/logout')
 @login_required
