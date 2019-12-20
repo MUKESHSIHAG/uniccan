@@ -32,7 +32,7 @@ Sign Up
               <h5 style="padding-left:20%">Already a User? <a href="{{ url_for('login') }}">SignIn</a></h5> -->
     {{ wtf.form_field(form.password2)}}
     {{ wtf.form_field(form.submit) }}
-    <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button> -->
+    <h5 style="padding-left:20%">Already a User? <a href="{{ url_for('login') }}">SignIn</a></h5>
   </form>
 </div>
 {% endblock %}

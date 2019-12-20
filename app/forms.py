@@ -6,7 +6,7 @@ from app.models import User
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=6, max=12)])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Log In')
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
