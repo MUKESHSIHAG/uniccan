@@ -31,9 +31,6 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
-    # check_user = User.query.filter_by(username=form.username.data).first()
-    # check_email = User.query.filter_by(email=form.email.data).first()
-    # if(check_user!='' or check_email!=''): return '<h3>user exist</h3>'
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password, gender=form.gender.data, college=form.college.data, dob=form.dob.data)
