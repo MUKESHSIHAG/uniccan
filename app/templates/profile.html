@@ -19,18 +19,10 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark row" style="padding: 1%;">
-        <a class="navbar-brand text-light col-md-1" href="#">Uniccan</a>
-            <!-- <input class="form-control mr-sm-4 col-md-5" type="search" placeholder="Search Circle To Join" aria-label="Search"> -->
-            <!-- <button class="btn btn-light" type="submit">Search</button> -->
+        <a class="navbar-brand text-light col-md-4" href="#">Uniccan</a>
             <a href="#" class="text-light" style="margin-left: 5%; text-decoration: none;"><h6>Create Circle</h6></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto" style="padding-left: 20%;">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li> -->
-            <!-- <li class="nav-item" style="margin-right: 20%;">
-              <a class="nav-link text-light" href="#"><h5>Create Circle</h5></a>
-            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Profile
@@ -47,49 +39,30 @@
         </div>
     </nav>
     <form style="margin-left: 10%; margin-right: 10%; margin-top: 5%;">
-    <div class="form-row">
-        <div class="form-group col-md-12">
-        <label for="inputEmail4">Username</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="inputEmail4">Username</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="{{ username }}">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="inputAddress">Gender</label>
-        <select class="form-control form-control-lg">
-            <option>Male</option>
-            <option>Female</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="inputAddress2">College Name</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="NIT Hamirpur">
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
+        <div class="form-group">
+            <label for="inputAddress">Choose Gender</label>
+            <select class="form-control form-control-lg">
+                <option>{{ gender }}</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
         </div>
-        <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
-        </select>
+        <div class="form-group">
+            <label for="college">College Name</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="{{ college }}">
+        </div>      
+        <div class="md-form">
+            <label for="dob">Date of Birth</label>
+            <input placeholder="Selected date" type="date" id="date-picker-example" class="form-control datepicker">
         </div>
-        <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-            Check me out
-        </label>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 2%;">Update</button>
     </form>
+
 </body>
 </html>
