@@ -1,6 +1,6 @@
 from app import app, db
 from app.forms import LoginForm, RegisterForm, CreateCircleForm
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from app.models import User, Circle
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -25,12 +25,20 @@ def login():
                 return redirect(url_for('login'))
         return '<h1>Invalid username or password</h1>'
         #return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
-
+    print('here')
     return render_template('login.html', form=form)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
+    if request.method == 'POST':
+        print(form.username.data)
+        print(form.username)
+        print(form.dob)
+        print(dir(form.dob))
+        print(form.dob.data)
+    print(form.dob.data)
+    print('here')
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password, gender=form.gender.data, college=form.college.data, dob=form.dob.data)
@@ -40,7 +48,7 @@ def signup():
         return redirect(url_for('login'))
         # return '<h1>New user has been created!</h1>'
         #return '<h1>' + form.username.data + ' ' + form.email.data + ' ' + form.password.data + '</h1>'
-
+    print('sadjfkasldf')
     return render_template('signup.html', form=form)
 
 @app.route('/dashboard')
