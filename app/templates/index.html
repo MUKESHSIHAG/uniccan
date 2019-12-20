@@ -1,22 +1,8 @@
-{% extends "bootstrap/base.html" %}
-
-{% block title %}
-Uniccan
-{% endblock %}
-
+{% extends "base.html" %}
 {% block content %}
-    <nav class="navbar navbar-inverse navbar-fixed-top row">
-        <div class="col-md-1"></div>
-        <div class="navbar col-md-8" >
-          <!-- <a class="navbar-brand text-light" href="#">Uniccan</a> -->
-          <h4 class="text-light" style="color: white;margin-top: 4%;">Uniccan</h4>
-        </div>
-        <div class="col-md-1"></div>
-        <div id="navbar" class="collapse navbar-collapse" style="margin-top: 1%;">
-          <ul class="nav navbar-nav">
-            <li><a href="{{ url_for('signup') }}"><button class="btn btn-primary" type="submit">SignUp</button></a></li>
-            <li><a href="{{ url_for('login') }}" style="margin-right: 5%;"><button class="btn btn-primary" type="submit">LogIn</button></a></li>
-          </ul>
-        </div>
-    </nav>
+{{ super() }}
+<h1>
+  This is the content
+</h1>  
+
 {% endblock %}
