@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import InputRequired, Email, Length, ValidationError, DataRequired, EqualTo
-from app.models import User
+from app.models import User, Circle
 
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
@@ -30,3 +30,18 @@ class RegisterForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+class CreateCircleForm(FlaskForm):
+    circlecode = StringField('Circle code',validators=[DataRequired()])
+    title = StringField('Title',validators=[DataRequired(),Length(max=50)])
+    description = TextAreaField('Description',validators=[DataRequired()])
+    submit = SubmitField('Create Circle')
+
+    def validate_circlecode(self,circlecode):
+        if not circlecode.data.isalnum():
+            raise ValidationError('Only use english alphabet and numbers')
+
+        circle = Circle.query.filter_by(code=circlecode.data).first()
+        if circle is not None:
+            raise ValidationError('Circle with this code already exists')
+
