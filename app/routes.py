@@ -7,8 +7,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-
+    return redirect(url_for('login'))
+    # return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -64,6 +64,7 @@ def createcircle():
     return render_template('circle.html',form=form)
   
 @app.route('/edit-profile')
+@login_required
 def edit_profile():
     print(current_user.username, current_user.gender, current_user.dob, current_user.college)
     username = current_user.username
